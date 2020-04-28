@@ -21,14 +21,12 @@ public class GreenBulletBehavior : MonoBehaviour
         chrono += Time.deltaTime;
         if (chrono > maxTime)
         {
-            chrono = 0;
             Destroy(this.gameObject);
-
         }
 
         float alpha = BeatAnimation.Evaluate(chrono);
 
-        this.transform.Translate(Vector2.up * chrono, Space.Self);
+        this.transform.Translate(Vector2.up * bulletSpeed * alpha, Space.Self);
     }
 
     private void OnBecameInvisible()

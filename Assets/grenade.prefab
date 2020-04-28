@@ -93,49 +93,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de427f842b9e404d80dc33cdfd22186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 3
+  bulletSpeed: 1
   BeatAnimation:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: -1.0857028
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
+      value: 0
+      inSlope: 34.11276
+      outSlope: 34.11276
+      tangentMode: 34
       weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.16063064
-      value: 0.11429727
-      inSlope: -11.201985
-      outSlope: -11.201985
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.009191976
-    - serializedVersion: 3
-      time: 0.857092
-      value: -0.58311915
-      inSlope: -3.5591364
-      outSlope: -3.5591364
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.08961574
-    - serializedVersion: 3
-      time: 1.5
-      value: -1.0857028
-      inSlope: -20.784155
-      outSlope: -20.784155
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.05009851
+      inWeight: 0.31903973
       outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.00772509
+      value: 0.26352412
+      inSlope: -0.7732104
+      outSlope: -0.7732104
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.026447115
+      outWeight: 0.06572108
+    - serializedVersion: 3
+      time: 0.5754533
+      value: 0
+      inSlope: -0.07440362
+      outSlope: 0
+      tangentMode: 65
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.079826
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0
+      outSlope: -0.015738143
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.22821066
+      outWeight: 0.13026032
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maxTime: 1.5
+  maxTime: 1
   chrono: 0
   BPM: 0
