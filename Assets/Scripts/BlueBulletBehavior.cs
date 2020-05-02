@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GreenBulletBehavior : MonoBehaviour
+public class BlueBulletBehavior : MonoBehaviour
 {
     public float bulletSpeed = 1.5f;
     public AnimationCurve BeatAnimation;
     public float maxTime = 0.0f;
-    public float chrono = 0.0f;
-    public float BPM = 0.0f;
+    float chrono = 0.0f;
 
     private void Start()
     {
-        this.GetComponent<SpriteRenderer>().material.color = Color.green;
+        this.GetComponent<SpriteRenderer>().material.color = Color.blue;
     }
 
     private void Update()
@@ -31,6 +30,6 @@ public class GreenBulletBehavior : MonoBehaviour
 
     private void OnBecameInvisible()
     {
-        
+        Destroy(this.gameObject);
     }
 }

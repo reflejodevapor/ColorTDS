@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3440163251225452612}
   - component: {fileID: 3903114579385744896}
+  - component: {fileID: 4896720510654694334}
   m_Layer: 0
   m_Name: shell
   m_TagString: Untagged
@@ -80,3 +81,59 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4896720510654694334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4246974606909880362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 968e2a820b7e2c14b854fa50f0dac678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpeed: 4.5
+  BeatAnimation:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 8
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.005
+      value: 0.04
+      inSlope: 8
+      outSlope: -0.10931181
+      tangentMode: 5
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.038155396
+    - serializedVersion: 3
+      time: 0.21413992
+      value: 0.016018517
+      inSlope: -0.06771009
+      outSlope: -0.040454015
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.06654243
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  maxTime: 0.7
