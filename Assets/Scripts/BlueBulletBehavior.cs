@@ -11,7 +11,7 @@ public class BlueBulletBehavior : MonoBehaviour
 
     private void Start()
     {
-        this.GetComponent<SpriteRenderer>().material.color = Color.blue;
+        this.GetComponent<SpriteRenderer>().material.color = GlobalColor.blue;
     }
 
     private void Update()

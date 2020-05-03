@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     bool currentlyShootingG = false;
     bool currentlyShootingB = false;
 
-    public Animation reload;
+    public Animator crosshairAnim;
 
     public float blue_rotation = 10.0f;
 
@@ -26,20 +26,16 @@ public class PlayerController : MonoBehaviour
 
     public GameObject rshell, gshell, bshell;
 
+    public Unit unit;
 
-    public enum CurrentGun
+    private void Awake()
     {
-        red,
-        green,
-        blue
+        unit = GetComponent<Unit>();
     }
 
-    public CurrentGun Color;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -59,20 +55,17 @@ public class PlayerController : MonoBehaviour
 
         this.gameObject.transform.Translate(new Vector2(Horizontal, Vertical) * playerSpeed * Time.deltaTime, Space.World);
 
-        if (GunR && Color != CurrentGun.red)
+        if (GunR && unit.unitColor != Unit.CurrentColor.red)
         {
-            Debug.Log("GunR");
-            Color = CurrentGun.red;
+            unit.unitColor = Unit.CurrentColor.red;
         }
-        else if (GunG && Color != CurrentGun.green)
+        else if (GunG && unit.unitColor != Unit.CurrentColor.green)
         {
-            Debug.Log("GunG");
-            Color = CurrentGun.green;
+            unit.unitColor = Unit.CurrentColor.green;
         }
-        else if (GunB && Color != CurrentGun.blue)
+        else if (GunB && unit.unitColor != Unit.CurrentColor.blue)
         {
-            Debug.Log("GunB");
-            Color = CurrentGun.blue;
+            unit.unitColor = Unit.CurrentColor.blue;
         }
 
         if (Dash && currentlyDashing == false && !(Horizontal == 0 && Vertical == 0))
@@ -82,16 +75,16 @@ public class PlayerController : MonoBehaviour
 
         if (Reload)
         {
-            switch (Color)
+            switch (unit.unitColor)
             {
-                case CurrentGun.red:
+                case Unit.CurrentColor.red:
                     AMMO_RED = 30;
-                    reload.Play();
+                    crosshairAnim.SetTrigger("reload");
                     break;
-                case CurrentGun.green:
+                case Unit.CurrentColor.green:
                     if (!currentlyShootingG && AMMO_GREEN > 0) { StartCoroutine(ShootGreen()); }
                     break;
-                case CurrentGun.blue:
+                case Unit.CurrentColor.blue:
                     if (!currentlyShootingB && AMMO_BLUE > 0) { StartCoroutine(ShootBlue()); }
                     break;
                 default: break;
@@ -100,15 +93,15 @@ public class PlayerController : MonoBehaviour
 
         if (LeftClick)
         {
-            switch (Color)
+            switch (unit.unitColor)
             {
-                case CurrentGun.red:
+                case Unit.CurrentColor.red:
                     if (!currentlyShootingR && AMMO_RED > 0) { StartCoroutine(ShootRed()); }
                     break;
-                case CurrentGun.green:
+                case Unit.CurrentColor.green:
                     if (!currentlyShootingG && AMMO_GREEN > 0) { StartCoroutine(ShootGreen());}
                     break;
-                case CurrentGun.blue:
+                case Unit.CurrentColor.blue:
                     if (!currentlyShootingB && AMMO_BLUE > 0) { StartCoroutine(ShootBlue()); }
                     break;
                 default:break;
@@ -128,18 +121,15 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Dashing()
     {
-        Debug.Log("Dash Started");
         currentlyDashing = true;
         playerSpeed *= 3.1f;
         yield return new WaitForSeconds(0.2f);
         playerSpeed /= 3.1f;
         currentlyDashing = false;
-        Debug.Log("Dash Finished");
     }
 
     IEnumerator ShootRed()
     {
-        Debug.Log("ShootRed");
         AMMO_RED--;
         currentlyShootingR = true;
         Instantiate(rshell, new Vector3(shootHole.position.x,shootHole.position.y,0.0f), this.transform.localRotation);
@@ -149,7 +139,6 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator ShootGreen()
     {
-        Debug.Log("ShootGreen");
         AMMO_GREEN--;
         currentlyShootingG = true;
         Instantiate(gshell, new Vector3(shootHole.position.x, shootHole.position.y, 0.0f), this.transform.localRotation);
@@ -159,7 +148,6 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator ShootBlue()
     {
-        Debug.Log("ShootBlue");
         AMMO_BLUE--;
         currentlyShootingB = true;
         float[] rotaciones = {37.5f,22.5f,7.5f,-7.5f,-22.5f, -37.5f };

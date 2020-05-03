@@ -11,7 +11,7 @@ public class GreenBulletBehavior : MonoBehaviour
 
     private void Start()
     {
-        this.GetComponent<SpriteRenderer>().material.color = Color.green;
+        this.GetComponent<SpriteRenderer>().material.color = GlobalColor.green;
     }
 
     private void Update()

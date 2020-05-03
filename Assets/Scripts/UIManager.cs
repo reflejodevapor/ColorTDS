@@ -12,8 +12,7 @@ public class UIManager : MonoBehaviour
     public PlayerController playerController;
     public GameObject playerHealthbar;
 
-    public Image BPMBorder, CrosshairImage;
-    public SpriteRenderer healthbarfill;
+    public Image BPMBorder, CrosshairImage, CrosshairImageTwo;
     public GameObject Crosshair;
 
 
@@ -28,7 +27,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerHealthbar.transform.position = new Vector2(playerController.transform.position.x, playerController.transform.position.y - 0.7f);
+       
         Crosshair.transform.position = Input.mousePosition;
 
         maxTime = 60 / BPM;
@@ -42,25 +41,24 @@ public class UIManager : MonoBehaviour
         float alpha = BeatAnimation.Evaluate(chrono);
         BPMBorder.color = new Color(BPMBorder.color.r, BPMBorder.color.g, BPMBorder.color.b, alpha);
 
-        switch (playerController.Color)
+        switch (playerController.unit.unitColor)
         {
-            case PlayerController.CurrentGun.red:
-                BPMBorder.color = new Color(Color.red.r, Color.red.g, Color.red.b, alpha);
-                healthbarfill.color = Color.red;
-                CrosshairImage.color = Color.red;
+            case Unit.CurrentColor.red:
+                BPMBorder.color = new Color(GlobalColor.red.r, GlobalColor.red.g, GlobalColor.red.b, alpha);
+                CrosshairImage.color = GlobalColor.red;
+                CrosshairImageTwo.color = GlobalColor.red;
                 CrosshairImage.fillAmount = (playerController.AMMO_RED * 100 / 30) / 100;
-                Debug.Log((playerController.AMMO_RED * 100 / 30) / 100);
                 break;
-            case PlayerController.CurrentGun.green:
-                BPMBorder.color = new Color(Color.green.r, Color.green.g, Color.green.b, alpha);
-                healthbarfill.color = Color.green;
-                CrosshairImage.color = Color.green;
+            case Unit.CurrentColor.green:
+                BPMBorder.color = new Color(GlobalColor.green.r, GlobalColor.green.g, GlobalColor.green.b, alpha);
+                CrosshairImage.color = GlobalColor.green;
+                CrosshairImageTwo.color = GlobalColor.green;
                 CrosshairImage.fillAmount = (playerController.AMMO_GREEN * 100 / 3) / 100;
                 break;
-            case PlayerController.CurrentGun.blue:
-                BPMBorder.color = new Color(Color.blue.r, Color.blue.g, Color.blue.b, alpha);
-                healthbarfill.color = Color.blue;
-                CrosshairImage.color = Color.blue;
+            case Unit.CurrentColor.blue:
+                BPMBorder.color = new Color(GlobalColor.blue.r, GlobalColor.blue.g, GlobalColor.blue.b, alpha);
+                CrosshairImage.color = GlobalColor.blue;
+                CrosshairImageTwo.color = GlobalColor.blue;
                 CrosshairImage.fillAmount = (playerController.AMMO_BLUE * 100 / 8) / 100;
                 break;
 

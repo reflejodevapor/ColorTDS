@@ -8,7 +8,7 @@ public class RedBulletBehavior : MonoBehaviour
 
     private void Start()
     {
-        this.GetComponent<SpriteRenderer>().material.color = Color.red;
+        this.GetComponent<SpriteRenderer>().material.color = GlobalColor.red;
     }
 
     private void Update()
@@ -18,6 +18,15 @@ public class RedBulletBehavior : MonoBehaviour
 
     private void OnBecameInvisible()
     {
+        Destroy(this.gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Animator>() != null)
+        {
+            collision.GetComponent<Animator>().SetTrigger("attacked");
+        }
         Destroy(this.gameObject);
     }
 }
