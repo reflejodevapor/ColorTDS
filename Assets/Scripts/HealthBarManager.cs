@@ -22,7 +22,7 @@ public class HealthBarManager : MonoBehaviour
         {
             if(unit.healthBar == false)
             {
-                var healthBar = Instantiate(barraDeVida, new Vector2(unit.transform.position.x, unit.transform.position.y - 0.7f), Quaternion.identity);
+                var healthBar = Instantiate(barraDeVida, Camera.main.ScreenToWorldPoint(new Vector2(unit.transform.position.x, unit.transform.position.y - 0.75f)), Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
                 healthBar.GetComponent<healthBarBehavior>().currentOwner = unit.transform;
                 unit.healthBar = true;
             }

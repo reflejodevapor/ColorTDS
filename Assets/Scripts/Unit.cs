@@ -6,6 +6,9 @@ public class Unit : MonoBehaviour
 {
     public bool healthBar = false;
 
+    public float unitHealth = 100.0f;
+
+    float DamageResistance = 65.0f;
 
     public enum CurrentColor
     {
@@ -20,6 +23,13 @@ public class Unit : MonoBehaviour
 
     private void Update()
     {
+        if(unitHealth < 0)
+        {
+            Destroy(this.gameObject);
+        }
+
+
+
         switch (unitColor)
         {
             case CurrentColor.red:
